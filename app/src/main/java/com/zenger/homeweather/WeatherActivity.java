@@ -1,5 +1,6 @@
 package com.zenger.homeweather;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.zenger.homeweather.gson.Forecast;
 import com.zenger.homeweather.gson.Weather;
+import com.zenger.homeweather.service.AutoUpdateService;
 import com.zenger.homeweather.util.HttpUtil;
 import com.zenger.homeweather.util.Utility;
 
@@ -159,6 +161,9 @@ public class WeatherActivity extends AppCompatActivity {
                             editor.putString("weather",responseText);
                             editor.apply();
                             showWeatherInfo(weather);
+                            Intent intent = new Intent(WeatherActivity.this,AutoUpdateService.class);
+                            startService(intent);
+
                         }else{
                             Toast.makeText(WeatherActivity.this,"获取天气信息失败",Toast.LENGTH_SHORT).show();
                         }
@@ -204,9 +209,6 @@ public class WeatherActivity extends AppCompatActivity {
         }
 
     }
-
-
-
 
 
 }

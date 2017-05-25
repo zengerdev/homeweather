@@ -6,6 +6,8 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.zenger.homeweather.service.AutoUpdateService;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -16,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
         if (prefs.getString("weather",null) != null){
             Intent intent = new Intent(this,WeatherActivity.class);
             startActivity(intent);
+            /*Intent intent1 = new Intent(this,AutoUpdateService.class);
+            startService(intent1);*/
             finish();
 
         }
