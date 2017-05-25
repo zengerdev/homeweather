@@ -1,8 +1,12 @@
 package com.zenger.homeweather.util;
 import android.text.TextUtils;
+
+import com.google.gson.Gson;
 import com.zenger.homeweather.db.City;
 import com.zenger.homeweather.db.County;
 import com.zenger.homeweather.db.Province;
+import com.zenger.homeweather.gson.Weather;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -72,6 +76,17 @@ public class Utility {
             }
         }
         return false;
+    }
+    public static Weather handleWeatherResponse(String response){
+         try {
+             JSONObject jsonObject = new JSONObject(response);
+             JSONArray jsonArray = jsonObject.getJSONArray("HeWeather");
+             String weatherContent = jsonArray.getJSONObject(0).toString();
+             return  new Gson().fromJson(weatherContent,Weather.class);
+         }catch (Exception e){
+             e.printStackTrace();
+         }
+        return  null;
     }
 
 }
