@@ -1,0 +1,10 @@
+<litepal>
+    <dbname value = "home_weather"/>
+    <version value = "1"/>
+    <list>
+        <mapping class = "com.zenger.homeweather.db.Province"/>
+        <mapping class = "com.zenger.homeweather.db.City"/>
+        <mapping class = "com.zenger.homeweather.db.County"/>
+    </list>
+
+</litepal>
