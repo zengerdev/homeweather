@@ -6,8 +6,6 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.zenger.homeweather.service.AutoUpdateService;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
